@@ -1,27 +1,27 @@
-# [cite_start]🏯 Cyber-Junk69's Hyprland Rice [cite: 1]
+# 🏯 Cyber-Junk69's Hyprland Rice [cite: 1]
 
-[cite_start]A highly customized, themeable Hyprland environment featuring automated theme switching, Zsh integration, and a streamlined workflow. [cite: 1]
+A highly customized, themeable Hyprland environment featuring automated theme switching, Zsh integration, and a streamlined workflow. 
 
 ---
 
 ## 📸 Screenshots
-> [!TIP]
-> [cite_start]**Tip:** Replace these placeholders with your own screenshots by saving images to an `assets/` folder in this repo! 
+> 
+> **Tip:** Replace these placeholders with your own screenshots by saving images to an `assets/` folder in this repo! 
 
 | Main Workspace | App Launcher | Power Menu |
 | :---: | :---: | :---: |
-| ![Desktop](https://via.placeholder.com/400x225?text=Main+Workspace)  | [cite_start]![Rofi](https://via.placeholder.com/400x225?text=Rofi+Hub) [cite: 4] | [cite_start]![wlogout](https://via.placeholder.com/400x225?text=wlogout+CSS)  |
+| ![Desktop](https://via.placeholder.com/400x225?text=Main+Workspace)  | ![Rofi](https://via.placeholder.com/400x225?text=Rofi+Hub) [ | ![wlogout](https://via.placeholder.com/400x225?text=wlogout+CSS)  |
 
 ---
 
 ## ✨ Features
-* **WM:** [Hyprland](https://hyprland.org/) (Dynamic Tiling) [cite: 4]
-* **Bar:** [Waybar](https://github.com/Alexays/Waybar) (Customized layouts for each theme) [cite: 4]
-* **Launcher:** [Rofi-wayland](https://github.com/lbonn/rofi-wayland) (Integrated Theme Hub) [cite: 4]
-* **Shell:** Zsh with [Oh My Zsh](https://ohmyz.sh/) & [Powerlevel10k](https://github.com/romkatv/powerlevel10k) [cite: 4]
-* **Notifications:** SwayNC [cite: 4]
-* **Power Menu:** wlogout (with custom CSS layout) [cite: 4]
-* **Automation:** Symlinked architecture for instant "Live Syncing" across devices. [cite: 4]
+* **WM:** [Hyprland](https://hyprland.org/) (Dynamic Tiling) 
+* **Bar:** [Waybar](https://github.com/Alexays/Waybar) (Customized layouts for each theme) 
+* **Launcher:** [Rofi-wayland](https://github.com/lbonn/rofi-wayland) (Integrated Theme Hub) 
+* **Shell:** Zsh with [Oh My Zsh](https://ohmyz.sh/) & [Powerlevel10k](https://github.com/romkatv/powerlevel10k) 
+* **Notifications:** SwayNC 
+* **Power Menu:** wlogout (with custom CSS layout) 
+* * **Automation:** Symlinked architecture for instant "Live Syncing" across devices. 
 
 ---
 
