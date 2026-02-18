@@ -10,31 +10,32 @@
 
 | Main Workspace | App Launcher | Power Menu |
 | :---: | :---: | :---: |
-| [cite_start]![Desktop](https://via.placeholder.com/400x225?text=Main+Workspace) [cite: 3] | [cite_start]![Rofi](https://via.placeholder.com/400x225?text=Rofi+Hub) [cite: 4] | [cite_start]![wlogout](https://via.placeholder.com/400x225?text=wlogout+CSS) [cite: 4] |
+| ![Desktop](https://via.placeholder.com/400x225?text=Main+Workspace)  | [cite_start]![Rofi](https://via.placeholder.com/400x225?text=Rofi+Hub) [cite: 4] | [cite_start]![wlogout](https://via.placeholder.com/400x225?text=wlogout+CSS)  |
 
 ---
 
 ## ✨ Features
-* [cite_start]**WM:** [Hyprland](https://hyprland.org/) (Dynamic Tiling) [cite: 4]
-* [cite_start]**Bar:** [Waybar](https://github.com/Alexays/Waybar) (Customized layouts for each theme) [cite: 4]
-* [cite_start]**Launcher:** [Rofi-wayland](https://github.com/lbonn/rofi-wayland) (Integrated Theme Hub) [cite: 4]
-* [cite_start]**Shell:** Zsh with [Oh My Zsh](https://ohmyz.sh/) & [Powerlevel10k](https://github.com/romkatv/powerlevel10k) [cite: 4]
-* [cite_start]**Notifications:** SwayNC [cite: 4]
-* [cite_start]**Power Menu:** wlogout (with custom CSS layout) [cite: 4]
-* [cite_start]**Automation:** Symlinked architecture for instant "Live Syncing" across devices. [cite: 4]
+* **WM:** [Hyprland](https://hyprland.org/) (Dynamic Tiling) [cite: 4]
+* **Bar:** [Waybar](https://github.com/Alexays/Waybar) (Customized layouts for each theme) [cite: 4]
+* **Launcher:** [Rofi-wayland](https://github.com/lbonn/rofi-wayland) (Integrated Theme Hub) [cite: 4]
+* **Shell:** Zsh with [Oh My Zsh](https://ohmyz.sh/) & [Powerlevel10k](https://github.com/romkatv/powerlevel10k) [cite: 4]
+* **Notifications:** SwayNC [cite: 4]
+* **Power Menu:** wlogout (with custom CSS layout) [cite: 4]
+* **Automation:** Symlinked architecture for instant "Live Syncing" across devices. [cite: 4]
 
 ---
 
 ## 🚀 Installation
 
 ### 1. Prerequisites
-[cite_start]Ensure you have the following installed on your system (Arch Linux): 
+Ensure you have the following installed on your system (Arch Linux): 
 
 ```bash
 sudo pacman -S hyprland kitty waybar rofi-wayland swaync wlogout zsh swww stow git
-[cite_start]``` 
+```
 
-### 2. Setup
+
+2. Setup
 To install, run the following commands: 
 
 ```bash
@@ -42,4 +43,4 @@ git clone [https://github.com/cyber-junk69/dotfiles.git](https://github.com/cybe
 cd ~/dotfiles
 chmod +x install.sh
 ./install.sh
-[cite_start]```
+```
