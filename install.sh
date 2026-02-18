@@ -1,36 +1,48 @@
 #!/bin/bash
 
-# --- Cyber-Junk69's Rice Installer ---
+# --- Cyber-Junk69's Rice Installer (Improved) ---
 
-# Define colors for output
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
-NC='\033[0m' # No Color
+NC='\033[0m'
 
 echo -e "${BLUE}Starting installation...${NC}"
 
-# 1. Create Backups
+# 1. Create Backups (Individual folders to avoid breaking the OS)
 echo -e "${BLUE}Backing up existing configs...${NC}"
-mkdir -p ~/.config_backup
-[ -d ~/.config ] && mv ~/.config ~/.config_backup/config_$(date +%Y%m%d_%H%M%S)
-[ -f ~/.zshrc ] && mv ~/.zshrc ~/.config_backup/.zshrc_$(date +%Y%m%d_%H%M%S)
-[ -f ~/.p10k.zsh ] && mv ~/.p10k.zsh ~/.config_backup/.p10k.zsh_$(date +%Y%m%d_%H%M%S)
+mkdir -p ~/.config_backup/$(date +%Y%m%d_%H%M%S)
+BACKUP_DIR=~/.config_backup/$(date +%Y%m%d_%H%M%S)
 
-# 2. Create Symlinks
+# Move old configs if they aren't already links
+for folder in hypr rofi waybar swaync themes wlogout; do
+    [ -d ~/.config/$folder ] && [ ! -L ~/.config/$folder ] && mv ~/.config/$folder $BACKUP_DIR/
+done
+
+# 2. Create Symlinks (Specific Folders)
 echo -e "${BLUE}Creating symlinks...${NC}"
-# Links the entire .config and .local folders to your home
-ln -sf ~/dotfiles/.config ~/.config
-ln -sf ~/dotfiles/.local ~/.local
-# Links shell configs
+mkdir -p ~/.config
+mkdir -p ~/.local
+
+# Link specific config folders
+ln -sfn ~/dotfiles/.config/hypr ~/.config/hypr
+ln -sfn ~/dotfiles/.config/rofi ~/.config/rofi
+ln -sfn ~/dotfiles/.config/waybar ~/.config/waybar
+ln -sfn ~/dotfiles/.config/swaync ~/.config/swaync
+ln -sfn ~/dotfiles/.config/themes ~/.config/themes
+ln -sfn ~/dotfiles/.config/wlogout ~/.config/wlogout
+
+# Link local bin and oh-my-zsh
+rm -rf ~/.local/bin  # Remove existing bin to prevent nesting
+ln -sfn ~/dotfiles/.local/bin ~/.local/bin
+ln -sfn ~/dotfiles/.oh-my-zsh ~/.oh-my-zsh
+
+# Link shell configs
 ln -sf ~/dotfiles/.zshrc ~/.zshrc
 ln -sf ~/dotfiles/.p10k.zsh ~/.p10k.zsh
 
 # 3. Set Executable Permissions
 echo -e "${BLUE}Setting permissions for scripts...${NC}"
-chmod +x ~/dotfiles/.local/bin/rofi-appearance-hub
-chmod +x ~/dotfiles/.local/bin/selector/*
+find ~/dotfiles/.local/bin -type f -exec chmod +x {} +
 chmod +x ~/dotfiles/.config/waybar/scripts/*.sh
 
-# 4. Final instructions
 echo -e "${GREEN}Installation Complete!${NC}"
-echo -e "Please restart your terminal or run: ${BLUE}source ~/.zshrc${NC}"
