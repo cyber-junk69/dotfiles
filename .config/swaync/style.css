@@ -1,0 +1,6 @@
+/* Point to our dynamic active folder instead of nova-dark */
+@import url("file://~/.config/themes/active/notifications.css");
+@import url("file://~/.config/themes/active/central_control.css");
+
+/* Keep waybar colors if you still use them */
+@import '../../.cache/wal/colors-waybar.css';

@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# IMPORTANT: Use the FULL path, don't use ~/
+WALL_DIR="/home/$USER/Pictures/Wallpapers"
+ROFI_LAYOUT="$HOME/.config/rofi/wallpaper.rasi"
+
+list_walls() {
+    # We find files and then format them for Rofi
+    find "$WALL_DIR" -maxdepth 1 -type f \( -iname "*.jpg" -o -iname "*.png" -o -iname "*.jpeg" \) | while read -r line; do
+        # Format: Name to display\0icon\x1fFull/Path/To/Image
+        echo -en "$(basename "$line")\0icon\x1f$line\n"
+    done
+}
+
+# Launch Rofi
+selected=$(list_walls | rofi -dmenu -i -p "󰸉" -config "$ROFI_LAYOUT")
+
+if [ -n "$selected" ]; then
+    swww img "$WALL_DIR/$selected" --transition-type random
+fi

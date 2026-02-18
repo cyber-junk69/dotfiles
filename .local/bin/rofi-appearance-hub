@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+# Added "Waybar" to the list of options
+options="󰸉 Wallpapers\n󰃟 Themes\n󱑒 Waybar\n󰄄 Screenshot\n󰆊 Lock Screen"
+
+# Choose an option
+chosen=$(echo -e "$options" | rofi -dmenu -i -p "Command Center" -config ~/.config/rofi/hub.rasi)
+
+case "$chosen" in
+    *Wallpapers)
+        ~/.local/bin/selector/rofi-wallpaper-picker
+        ;;
+    *Themes)
+        ~/.local/bin/selector/rofi-theme-selector
+        ;;
+    *Waybar)
+        # Point this to where you saved the waybar script
+        ~/.local/bin/selector/waybar-selector.sh
+        ;;
+    *Screenshot)
+        grim -g "$(slurp)" - | wl-copy && notify-send "Screenshot" "Copied to clipboard"
+        ;;
+
+    *Lock*)
+         hyprlock --config ~/.config/hypr/hyprlock/hyprlock.conf
+
+        ;;
+esac

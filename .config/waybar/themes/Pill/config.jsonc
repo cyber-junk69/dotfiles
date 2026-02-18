@@ -1,0 +1,55 @@
+{
+  "layer": "top",
+  "position": "top",
+  "reload_style_on_change": true,
+  "modules-left": [],
+  "modules-center": [
+    "clock",
+    "hyprland/workspaces",
+    "pulseaudio",
+    "custom/powerDraw",
+    "network",
+    "battery"
+  ],
+  "modules-right": [],
+
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "on-click": "activate",
+    /*"format-icons": {
+      "active": "",
+      "default": ""
+    },*/
+    "persistent-workspaces": { "*" : 5 }
+  },
+
+  "clock": {
+    "format": "{:%I:%M%p}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-icons": { "default": ["", "", ""] },
+    "on-click": "~/.config/waybar/scripts/amixer-toggle.sh"
+  },
+
+  "custom/powerDraw": {
+    "format": "{}",
+    "interval": 1,
+    "exec": "~/.config/waybar/scripts/powerdraw.sh",
+    "return-type": "json"
+  },
+
+  "network": {
+    "format-wifi": " ",
+    "format-ethernet": "󰈀",
+    "tooltip-format": "{essid}"
+  },
+
+  "battery": {
+    "states": { "warning": 30, "critical": 15 },
+    "format": "{icon} {capacity}%",
+    "format-icons": ["", "", "", "", ""]
+  }
+}

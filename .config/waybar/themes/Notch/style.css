@@ -1,0 +1,32 @@
+
+
+* {
+    border: none;
+    font-family: "JetBrainsMono Nerd Font";
+    font-size: 14px;
+}
+
+window#waybar {
+    background: transparent;
+}
+
+.modules-center {
+    background: #151515;
+    border: 2px solid #ff0055;
+    border-radius: 0px 0px 15px 15px;
+    padding: 2px 20px;
+    margin-top: 0px;
+}
+
+#workspaces, #clock, #pulseaudio, #network, #battery, #custom-powerDraw {
+    padding: 0 10px;
+    color: #ffffff;
+}
+
+#workspaces button.active {
+    color: #ff0055;
+}
+
+#clock {
+    color: #5fd1fa;
+}

@@ -1,0 +1,7 @@
+.DS_Store
+.cache/
+.zsh_history
+.bash_history
+.python_history
+node_modules/
+*.log

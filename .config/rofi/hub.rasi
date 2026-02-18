@@ -1,0 +1,68 @@
+/** SLEEK HUB - NO BOXES, TEXT ONLY **/
+@import "~/.config/themes/active/rofi.rasi"
+
+window {
+    width:            400px;
+    border:           0px solid;
+    border-radius:    5px;
+    border-color:     @accent;
+    background-color: @bg;
+}
+
+
+
+inputbar {
+    /* Removes background and padding around the search bar */
+    background-color: transparent;
+    text-color: #ffffff;
+    children: [ "prompt", "entry" ];
+    padding: 10px;
+}
+prompt {
+    /* This is the text icon/label before the search box (e.g., "Search:") */
+    background-color: transparent;
+    text-color: @accent; /* Makes the prompt your Pink/Green color */
+    margin: 0px 10px 0px 0px;
+}
+
+entry {
+    background-color: transparent;
+    text-color: @fg;      /* Color of the text you type */
+    
+    /* CHANGE SEARCH BAR TEXT HERE */
+    placeholder: "Select Style..."; 
+    placeholder-color: rgba(255, 255, 255, 0.3); /* Faded white for placeholder */
+}
+
+listview {
+    lines:            3;      /* Only 3 items displayed */
+    fixed-height:     true;
+    scrollbar:        false;
+    spacing:          10px;
+    background-color: transparent;
+}
+
+element {
+    background-color: transparent; /* Fix: ensures unselected items have no box */
+    text-color:       @fg;
+    padding:          5px;
+}
+
+/* Fix: Remove the highlight box from all states */
+element normal.normal,
+element alternate.normal {
+    background-color: transparent;
+    text-color:       @fg;
+}
+
+/* Fix: Only change the TEXT color when selected, keep background transparent */
+element selected.normal {
+    background-color: transparent; 
+    text-color:       @accent;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit; /* Inherits from the element logic above */
+    highlight:        none;
+}

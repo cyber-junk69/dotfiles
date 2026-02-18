@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+
+THEME_ROOT="$HOME/.config/themes"
+ACTIVE="$THEME_ROOT/active"
+ROFI_STYLE="$HOME/.config/rofi/theme-selector.rasi"
+
+choice=$(ls -d "$THEME_ROOT"/*/ | xargs -n 1 basename | grep -v "active" | rofi -dmenu -p "󰏘 Themes" -config "$ROFI_STYLE")
+
+if [ -n "$choice" ]; then
+    cp "$THEME_ROOT/$choice/"* "$ACTIVE/"
+
+
+    # 2. Refresh Waybar to pick up the new colors and run animations
+    killall -SIGUSR2 waybar
+
+    # 3. Reload Hyprland and other apps
+    hyprctl reload
+    pkill -USR1 kitty
+    swaync-client -rs
+    
+    # --- END OF NEW CODE ---
+
+    notify-send "Theme Manager" "Applied $choice theme to all apps"
+fi
+

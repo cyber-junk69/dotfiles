@@ -1,0 +1,37 @@
+/** POWER MENU - DYNAMIC TO THEME SWITCHER **/
+
+/* This is the magic line that follows your theme switcher */
+@import "~/.config/themes/active/rofi.rasi"
+
+window {
+    width:                        400px;
+    border:                       2px solid;
+    border-color:                 @accent; /* Uses theme's accent */
+    background-color:             @bg;     /* Uses theme's background */
+    border-radius:                15px;
+    location:                     center;
+}
+
+listview {
+    columns:                     3;
+    lines:                       1;
+    spacing:                     10px;
+    padding:                     25px;
+    background-color:            transparent;
+}
+
+element {
+    background-color:            transparent;
+    text-color:                  @fg;
+}
+
+element-text {
+    font:                        "JetBrainsMono Nerd Font 40";
+    horizontal-align:            0.5;
+    background-color:            transparent;
+    text-color:                  inherit;
+}
+
+element selected.normal {
+    text-color:                  @accent; /* Highlight matches theme */
+}
