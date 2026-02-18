@@ -125,3 +125,5 @@ alias u='yay -Syu'
 alias s='yay -Ss'
 alias q='yay -Q'
 alias lock='hyprlock'
+# Rice Management Aliases
+alias rice-save='cd ~/dotfiles && git add . && git commit -m "Rice update: $(date +%Y-%m-%d_%H:%M)" && git push && cd -'
