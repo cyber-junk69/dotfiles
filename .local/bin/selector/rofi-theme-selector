@@ -2,24 +2,26 @@
 
 THEME_ROOT="$HOME/.config/themes"
 ACTIVE="$THEME_ROOT/active"
-ROFI_STYLE="$HOME/.config/rofi/theme-selector.rasi"
-
-choice=$(ls -d "$THEME_ROOT"/*/ | xargs -n 1 basename | grep -v "active" | rofi -dmenu -p "󰏘 Themes" -config "$ROFI_STYLE")
+RASI_FILE="$HOME/.config/rofi/theme-selector.rasi"
+# Select theme via Rofi
+choice=$(ls -d "$THEME_ROOT"/*/ | xargs -n 1 basename | grep -v "active" | rofi -dmenu -p "󰏘 Themes")
 
 if [ -n "$choice" ]; then
-    cp "$THEME_ROOT/$choice/"* "$ACTIVE/"
+    # Clear out the active folder before applying new theme
+    rm -rf "$ACTIVE"
+    mkdir -p "$ACTIVE/hyprland" "$ACTIVE/kitty" "$ACTIVE/rofi" "$ACTIVE/swaync"
 
-
-    # 2. Refresh Waybar to pick up the new colors and run animations
-    killall -SIGUSR2 waybar
-
-    # 3. Reload Hyprland and other apps
-    hyprctl reload
-    pkill -USR1 kitty
-    swaync-client -rs
+    # Copy packaged files to active directory
+    cp "$THEME_ROOT/$choice/hyprland/colors.conf" "$ACTIVE/hyprland/colors.conf"
+    cp "$THEME_ROOT/$choice/kitty/colors.conf"    "$ACTIVE/kitty/colors.conf"
+    cp "$THEME_ROOT/$choice/rofi/colors.rasi"     "$ACTIVE/rofi/colors.rasi"
+    cp "$THEME_ROOT/$choice/swaync/colors.css"     "$ACTIVE/swaync/colors.css"
     
-    # --- END OF NEW CODE ---
-
-    notify-send "Theme Manager" "Applied $choice theme to all apps"
+    # Trigger Live Reloading
+    hyprctl reload                         # Reload Hyprland
+    pkill -USR1 kitty                      # Refresh Kitty
+    killall -SIGUSR2 waybar                # Reload Waybar CSS
+    swaync-client -rs                      # Reload SwayNC
+    
+    notify-send "Theme Manager" "Applied $choice successfully"
 fi
-

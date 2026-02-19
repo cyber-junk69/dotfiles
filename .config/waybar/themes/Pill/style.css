@@ -53,3 +53,18 @@ window#waybar {
     padding: 0 10px;
     color:wheat
 }
+
+
+/* Import the active theme colors for Waybar */
+/*@import "../../theme/active/waybar/colors.css";*/
+
+#custom-notification {
+    font-family: "NotoSansMono Nerd Font";
+    color: @accent; /* Uses the accent color from your theme */
+    padding: 0 10px;
+    font-size: 16px;
+}
+#mpris {
+    background: #151515; /* Matches your module center  */
+    margin-right: 20px;
+}

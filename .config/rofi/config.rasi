@@ -1,5 +1,5 @@
 /** SLEEK HUB - NO BOXES, TEXT ONLY **/
-@import "~/.config/themes/active/rofi.rasi"
+@import "~/.config/themes/active/rofi/colors.rasi"
 
 window {
     width:            400px;

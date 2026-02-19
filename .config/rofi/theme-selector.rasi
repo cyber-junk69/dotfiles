@@ -1,5 +1,6 @@
 /** SLEEK HUB - NO BOXES, TEXT ONLY **/
-@import "~/.config/themes/active/rofi.rasi"
+/* Change the import to look inside the /rofi/ folder */
+@import "~/.config/themes/active/rofi/colors.rasi" 
 
 window {
     width:            400px;

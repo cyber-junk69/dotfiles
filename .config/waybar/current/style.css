@@ -3,7 +3,7 @@
 * {
     border: none;
     font-family: "JetBrainsMono Nerd Font";
-    font-size: 14px;
+    font-size: 13px;
 }
 
 window#waybar {
@@ -12,21 +12,59 @@ window#waybar {
 
 .modules-center {
     background: #151515;
-    border: 2px solid #ff0055;
-    border-radius: 0px 0px 15px 15px;
+    border: 0px solid #000000;
+    border-radius: 20px 20px 20px 20px;
     padding: 2px 20px;
-    margin-top: 0px;
+    margin-top: 3px;
+    min-height: 0px;
 }
 
-#workspaces, #clock, #pulseaudio, #network, #battery, #custom-powerDraw {
-    padding: 0 10px;
-    color: #ffffff;
+   #battery {
+    padding: 0 0px;
+    color: #0efe05;
 }
 
+#workspaces button{
+    color:rgb(129, 129, 129);
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
 #workspaces button.active {
-    color: #ff0055;
+    background:#5fd1fa;
+    min-width: 55px;
+    min-height: 1px;
+    color: #006488;
 }
 
 #clock {
+    padding-right: 20px;
     color: #5fd1fa;
+}
+
+#pulseaudio {
+    padding-left: 5px ;
+    color:rgb(248, 184, 106)
+}
+
+#custom-powerDraw {
+    color:rgb(2, 179, 2)
+}
+
+#network {
+    padding: 0 10px;
+    color:wheat
+}
+
+
+/* Import the active theme colors for Waybar */
+/*@import "../../theme/active/waybar/colors.css";*/
+
+#custom-notification {
+    font-family: "NotoSansMono Nerd Font";
+    color: @accent; /* Uses the accent color from your theme */
+    padding: 0 10px;
+    font-size: 16px;
+}
+#mpris {
+    background: #151515; /* Matches your module center  */
+    margin-right: 20px;
 }

@@ -1,6 +1,28 @@
-/* Point to our dynamic active folder instead of nova-dark */
-@import url("file://~/.config/themes/active/notifications.css");
-@import url("file://~/.config/themes/active/central_control.css");
+/* Import the .css file we just generated */
+@import "../../themes/active/swaync/colors.css";
 
-/* Keep waybar colors if you still use them */
-@import '../../.cache/wal/colors-waybar.css';
+:root {
+  --border-radius: 22px;
+  --cc-bg: @base;         /* Changed from $background */
+  --widget-background: @base; 
+  --noti-bg-alpha: 0.6;
+}
+
+* {
+    color: @text;         /* Changed from $foreground */
+}
+
+.control-center {
+  background: alpha(@base, 0.9);
+  border: 2px solid @accent;
+}
+
+.widget.widget-mpris {
+  background: @base;
+  border: none;
+}
+
+.widget-mpris > box > button:hover {
+  background: @accent;
+  color: @base;
+}

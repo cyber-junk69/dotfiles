@@ -4,52 +4,100 @@
   "reload_style_on_change": true,
   "modules-left": [],
   "modules-center": [
-    "hyprland/workspaces",
     "clock",
+    "mpris",
+    "hyprland/workspaces",
     "pulseaudio",
     "custom/powerDraw",
     "network",
     "battery"
   ],
-  "modules-right": [],
-
+  "modules-right": ["custom/notification",],
   "hyprland/workspaces": {
     "format": "{icon}",
     "on-click": "activate",
-    "format-icons": {
+    /*"format-icons": {
       "active": "",
       "default": ""
-    },
-    "persistent-workspaces": { "*" : 6 }
+    },*/
+    "persistent-workspaces": {
+      "*": 5
+    }
   },
-
   "clock": {
     "format": "{:%I:%M%p}",
     "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
   },
-
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-icons": { "default": ["", "", ""] },
+    "format-icons": {
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
     "on-click": "~/.config/waybar/scripts/amixer-toggle.sh"
   },
-
   "custom/powerDraw": {
     "format": "{}",
     "interval": 1,
     "exec": "~/.config/waybar/scripts/powerdraw.sh",
     "return-type": "json"
   },
-
   "network": {
     "format-wifi": " ",
     "format-ethernet": "󰈀",
     "tooltip-format": "{essid}"
   },
-
   "battery": {
-    "states": { "warning": 30, "critical": 15 },
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
     "format": "{icon} {capacity}%",
-    "format-icons": ["", "", "", "", ""]
-  }
+    "format-icons": [
+      "",
+      "",
+      "",
+      "",
+      ""
+    ]
+  },
+
+  "custom/notification": {
+    "tooltip": false,
+    "format": "{icon}",
+    "format-icons": {
+      "notification": "<span foreground='red'><sup></sup></span>",
+      "none": "",
+      "dnd-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-none": "",
+      "inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "inhibited-none": "",
+      "dnd-inhibited-notification": "<span foreground='red'><sup></sup></span>",
+      "dnd-inhibited-none": ""
+    },
+    "return-type": "json",
+    "exec-if": "which swaync-client",
+    "exec": "swaync-client -swb",
+    "on-click": "swaync-client -t -swb",
+    "on-click-right": "swaync-client -d -swb",
+    "escape": true
+},
+"mpris": {
+    "format": "{player_icon} {title} - {artist}",
+    "format-paused": "{status_icon} <i>{title} - {artist}</i>",
+    "player-icons": {
+        "default": "▶",
+        "spotify": "",
+        "firefox": "",
+        "chrome": ""
+    },
+    "status-icons": {
+        "paused": "⏸"
+    },
+    "max-length": 40
+},
+ 
 }

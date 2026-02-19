@@ -1,5 +1,5 @@
 /** HORIZONTAL SELECTOR - NO INACTIVE BOXES **/
-@import "~/.config/themes/active/rofi.rasi"
+@import "~/.config/themes/active/rofi/colors.rasi"
 
 configuration {
     modi:                        "dmenu";
