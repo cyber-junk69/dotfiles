@@ -126,6 +126,5 @@ alias s='yay -Ss'
 alias q='yay -Q'
 alias lock='hyprlock'
 # Rice Management Aliases
-alias rice-save='cd ~/dotfiles && git add . && git commit -m "Rice update: $(date +%Y-%m-%d_%H:%M)" && git push && cd -'
-
+alias rice-save='cd ~/dotfiles && git add . && git commit -m "update" && git pull --rebase origin main && git push origin main'
 export PATH=$PATH:/home/sam/.spicetify
